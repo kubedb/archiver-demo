@@ -21,7 +21,7 @@ spec:
     driver: VolumeSnapshotter
     task:
       params:
-        volumeSnapshotClassName: gke-vsc  
+        volumeSnapshotClassName: gke-vsc  # change it accordingly
     scheduler:
       successfulJobsHistoryLimit: 1
       failedJobsHistoryLimit: 1

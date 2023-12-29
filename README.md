@@ -11,9 +11,9 @@ helm upgrade -i sidekick sidekick-v2023.12.11.tgz \
 
 # KubeStash
 
-helm pull oci://ghcr.io/appscode-charts/kubestash --version v2023.12.1
+helm pull oci://ghcr.io/appscode-charts/kubestash --version v2023.12.28
 
-helm upgrade -i kubestash kubestash-v2023.12.1.tgz \
+helm upgrade -i kubestash kubestash-v2023.12.28.tgz \
   --namespace kubedb \
   --set-file global.license=/path/to/the/license.txt \
   --wait --burst-limit=10000 --debug
@@ -21,11 +21,11 @@ helm upgrade -i kubestash kubestash-v2023.12.1.tgz \
 # KubeDB
 
 helm uninstall kubedb -n kubedb
-helm pull oci://ghcr.io/appscode-charts/kubedb --version v2023.12.11
+helm pull oci://ghcr.io/appscode-charts/kubedb --version v2023.12.28
 
 kubectl apply -f https://github.com/kubedb/installer/raw/v2023.12.11/crds/kubedb-catalog-crds.yaml
 
-helm upgrade -i kubedb kubedb-v2023.12.11.tgz \
+helm upgrade -i kubedb kubedb-v2023.12.28.tgz \
   --namespace kubedb \
   --set kubedb-kubestash-catalog.enabled=true \
   --set-file global.license=/path/to/the/license.txt \

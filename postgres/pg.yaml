@@ -1,0 +1,24 @@
+apiVersion: kubedb.com/v1alpha2
+kind: Postgres
+metadata:
+  name: ha-postgres
+  namespace: demo
+  labels:
+    archiver: "true"
+spec:
+  version: "11.2-postgres-cron-2"
+  replicas: 2
+  standbyMode: Hot
+  storageType: Durable
+  storage:
+    storageClassName: "cinder"
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 5Gi
+  archiver:
+    ref:
+      name: postgresarchiver
+      namespace: demo
+  terminationPolicy: Delete

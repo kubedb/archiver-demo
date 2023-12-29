@@ -18,7 +18,6 @@ spec:
   standbyMode: Hot
   storageType: Durable
   storage:
-    storageClassName: "longhorn"
     accessModes:
     - ReadWriteOnce
     resources:

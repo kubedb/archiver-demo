@@ -30,7 +30,7 @@ spec:
     driver: "VolumeSnapshotter"
     task:
       params:
-        volumeSnapshotClassName: "longhorn"
+        volumeSnapshotClassName: "longhorn-vsc" # "gke-vsc" # "az-vsc"  # Set accordingly
     scheduler:
       successfulJobsHistoryLimit: 2
       failedJobsHistoryLimit: 2

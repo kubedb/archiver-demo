@@ -1,0 +1,26 @@
+apiVersion: kubedb.com/v1alpha2
+kind: Postgres
+metadata:
+  name: restore-postgres
+  namespace: demo
+spec:
+  init:
+    archiver:
+      encryptionSecret:
+        name: encrypt-secret
+        namespace: demo
+      fullDBRepository:
+        name: ha-postgres-repository
+        namespace: demo
+      recoveryTimestamp: "2023-12-14T10:13:18.106635Z"
+  version: "16.1"
+  replicas: 3
+  standbyMode: Hot
+  storageType: Durable
+  storage:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+  terminationPolicy: WipeOut

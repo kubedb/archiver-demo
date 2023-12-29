@@ -1,0 +1,26 @@
+apiVersion: kubedb.com/v1alpha2
+kind: MySQL
+metadata:
+  name: restore-mysql
+  namespace: demo
+spec:
+  init:
+    archiver:
+      encryptionSecret:
+        name: encrypt-secret
+        namespace: demo
+      fullDBRepository:
+        name: mysql-repository
+        namespace: demo
+      recoveryTimestamp: "2023-12-28T17:10:54Z"
+  version: "8.2.0"
+  replicas: 1
+  storageType: Durable
+  storage:
+    storageClassName: "longhorn"
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 10Gi
+  terminationPolicy: WipeOut

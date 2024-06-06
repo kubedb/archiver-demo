@@ -9,9 +9,9 @@ spec:
     azure:
       storageAccount: storageAccountName
       container: container
-      prefix: pg
+      prefix: mg
       secret: azure-secret
   usagePolicy:
     allowedNamespaces:
       from: All
-  deletionPolicy: WipeOut
+  deletionPolicy: WipeOut # One of: WipeOut, Delete

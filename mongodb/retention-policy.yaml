@@ -1,11 +1,12 @@
 apiVersion: storage.kubestash.com/v1alpha1
 kind: RetentionPolicy
 metadata:
-  name: mongodb-retention-policy
+  name: rp
   namespace: demo
 spec:
-  maxRetentionPeriod: "30d"
+  maxRetentionPeriod: 2mo
   successfulSnapshots:
-    last: 5
-  failedSnapshots:
-    last: 2
+    last: 10
+  usagePolicy:
+    allowedNamespaces:
+      from: All

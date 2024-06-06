@@ -14,4 +14,4 @@ spec:
   usagePolicy:
     allowedNamespaces:
       from: All
-  deletionPolicy: WipeOut # One of: WipeOut, Delete
+  deletionPolicy: WipeOut

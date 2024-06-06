@@ -1,0 +1,38 @@
+apiVersion: kubedb.com/v1alpha2
+kind: MongoDB
+metadata:
+  name: shard-restored
+  namespace: demo
+spec:
+  init:
+    archiver:
+      recoveryTimestamp: "2024-06-05T13:58:36Z"
+      encryptionSecret:
+        name: encry-secret
+        namespace: demo
+      fullDBRepository:
+        name: simple-full
+        namespace: demo
+      manifestRepository:
+        name: simple-manifest
+        namespace: demo
+  version: "4.4.26"
+  shardTopology:
+    configServer:
+      replicas: 3
+      storage:
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: longhorn
+    mongos:
+      replicas: 2
+    shard:
+      replicas: 3
+      shards: 2
+      storage:
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: longhorn
+  terminationPolicy: WipeOut

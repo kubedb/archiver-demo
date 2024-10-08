@@ -1,7 +1,7 @@
 apiVersion: storage.kubestash.com/v1alpha1
 kind: BackupStorage
 metadata:
-  name: local-storage
+  name: storage
   namespace: demo
 spec:
   storage:
@@ -9,15 +9,20 @@ spec:
     local:
       mountPath: /pg/walg
       nfs:
-        server: "use the server address here"
-        path: "use the shared path here"
+        server: 10.128.38.158:2049
+        path: /exports
   usagePolicy:
     allowedNamespaces:
       from: All
   default: false
   deletionPolicy: WipeOut
   runtimeSettings:
+    container:
+      securityContext:
+        runAsUser: 70
+        runAsGroup: 70
     pod:
       securityContext:
         fsGroup: 70
         runAsUser: 70
+        runAsGroup: 70

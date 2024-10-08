@@ -12,7 +12,7 @@ spec:
       fullDBRepository:
         name: ha-postgres-repository
         namespace: demo
-      recoveryTimestamp: "2023-12-14T10:13:18.106635Z"
+      recoveryTimestamp: "2024-01-01T07:58:01.548804Z"
   version: "16.1"
   replicas: 3
   standbyMode: Hot

@@ -50,5 +50,5 @@ spec:
     sessionHistoryLimit: 3
   backupStorage:
     ref:
-      name: "s3-storage"
+      name: "local-storage"
       namespace: "demo"

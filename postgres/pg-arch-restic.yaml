@@ -1,7 +1,7 @@
 apiVersion: archiver.kubedb.com/v1alpha1
 kind: PostgresArchiver
 metadata:
-  name: postgresarchiver-sample
+  name: pg-arch-restic
   namespace: demo
 spec:
   pause: false
